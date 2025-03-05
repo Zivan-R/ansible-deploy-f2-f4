@@ -1,9 +1,9 @@
-import mysql.connector
+import pymysql
 from datetime import datetime
 
 def insert_execution_time():
     try:
-        conn = mysql.connector.connect(
+        conn = pymysql.connect(
             host="localhost",
             user="root",
             database="appdb",
@@ -11,12 +11,12 @@ def insert_execution_time():
         )
         cursor = conn.cursor()
         now = datetime.now()
-        cursor.execute("INSERT INTO execution (executed_at) VALUES (%s)", (now,))
+        cursor.execute("INSERT INTO executions (executed_at) VALUES (%s)", (now,))
         conn.commit()
         cursor.close()
         conn.close()
         print("Hola world")
-    except mysql.connector.Error as err:
+    except pymysql.MySQLError as err:
         print(f"Error: {err}")
 
 if __name__ == "__main__":
