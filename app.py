@@ -17,7 +17,7 @@ def insert_execution_time():
         cursor.close()
         conn.close()
 
-        print("Hola wolrd")
+        print("Hello World")
         
     except pymysql.MySQLError as err:
         print(f"Error: {err}")
