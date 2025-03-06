@@ -4,7 +4,9 @@ pipeline {
     stages {
 	stage('Clone Repository') {
 	    steps {
-		git 'https://github.com/Zivan-R/ansible-deploy-f2-f4'
+		git branch: 'main',
+		    url: 'https://github.com/Zivan-R/ansible-deploy-f2-f4',
+		    credentialsId: '89023273-d724-4090-95c2-17b8eed5e0f5'
 	    }
 	}
 	stage('Install Dependecies') {
