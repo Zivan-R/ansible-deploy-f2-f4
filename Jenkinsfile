@@ -30,8 +30,8 @@ pipeline {
 	}
 	stage('Push Docker Image') {
 	    steps {
-		withCredentials([string(credentialsId: 'dockerhub_password', variable: 'bF*2JT3?gfWryaL')]) {
-	    	    sh 'echo $DOCKERHUB_PASS | docker login -u zivanr --password-stdin'
+		withCredentials([usernamePassword(credentialsId: 'dockerhub_password', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKERHUB_PASS')]) {
+	    	    sh 'echo "$DOCKERHUB_PASS" | docker login -u "$DOCKER_USER" --password-stdin'
 		    sh 'docker push zivanr/python-app-f2-f4:latest'
 	        }
 	    }
