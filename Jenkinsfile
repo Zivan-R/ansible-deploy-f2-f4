@@ -20,7 +20,7 @@ pipeline {
 	}
 	stage('Run Tests') {
 	    steps {
-		sh 'pytest app/test_app.py'
+		sh 'pytest test_app.py'
 	    }
 	}
 	stage('Build Docker Image') {
