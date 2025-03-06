@@ -12,9 +12,8 @@ pipeline {
 	stage('Install Dependecies') {
 	    steps {
 		sh '''
-		    #!/bin/bash
 		    python3 -m venv venv
-		    source venv/bin/activate
+		    . venv/bin/activate
 		    pip install -r app/requirements.txt
 		'''
 	    }
