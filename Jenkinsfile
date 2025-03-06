@@ -25,7 +25,7 @@ pipeline {
 	}
 	stage('Build Docker Image') {
 	    steps {
-		sh 'docker build -t zivanr/python-app-f2-f4:latest ./app'
+		sh 'docker build -t zivanr/python-app-f2-f4:latest .'
 	    }
 	}
 	stage('Push Docker Image') {
