@@ -5,13 +5,17 @@ pipeline {
 	stage('Clone Repository') {
 	    steps {
 		git branch: 'main',
-		    url: 'https://github.com/Zivan-R/ansible-deploy-f2-f4',
+		    url: 'git@github.com:Zivan-R/ansible-deploy-f2-f4.git',
 		    credentialsId: '89023273-d724-4090-95c2-17b8eed5e0f5'
 	    }
 	}
 	stage('Install Dependecies') {
 	    steps {
-		sh 'pip3 install -r app/requirements.txt'
+		sh '''
+		    python3 -m venv venv
+		    source venv/bin/activate
+		    pip install -r app/requirements.txt
+		'''
 	    }
 	}
 	stage('Run Tests') {
